@@ -1,12 +1,12 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
-import { CoronavirusSharp } from "@mui/icons-material";
+
 
 //Color design tokens
 export const tokens = (mode) => ({
   ...(mode === "dark"
     ? {
-        gey: {
+        grey: {
           100: "#e0e0e0",
           200: "#c2c2c2",
           300: "#a3a3a3",
@@ -63,7 +63,7 @@ export const tokens = (mode) => ({
         },
       }
     : {
-        gey: {
+        grey: {
           100: "#e0e0e0",
           200: "#c2c2c2",
           300: "#a3a3a3",
@@ -128,7 +128,7 @@ export const themeSettings =(mode)=>{
     return {
       palette: {
         mode: mode,
-        ...(mode == "dark"
+        ...(mode === "dark"
           ? {
               primary: {
                 main: colors.primary[500],
@@ -208,4 +208,4 @@ export const useMode=()=>{
 
     const theme =useMemo(()=>createTheme(themeSettings(mode)),[mode]);
     return [theme,colorMode];
-}
+};
